@@ -1,7 +1,7 @@
 package mx.console.commands;
 
 import mx.console.Command;
-import mx.console.Console.OutputListener;
+import mx.console.OutputListener;
 
 public class UnrecognizedCommand implements Command {
 	

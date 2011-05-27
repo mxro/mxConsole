@@ -11,6 +11,10 @@ public class BasicCommandInterpreter {
 
 	public final Map<String, CommandFactory> commands;
 
+	public void addCommand(final CommandFactory commandFactory) {
+		commands.put(commandFactory.getCode(), commandFactory);
+	}
+	
 	public Command interpret(final String line) {
 		if (line == null) {
 			return new UnrecognizedCommand("Cannot interpret command <null>.");

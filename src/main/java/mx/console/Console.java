@@ -1,20 +1,51 @@
 package mx.console;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Interface for console like string-based interactions.
  * 
  * @author Max
  *
  */
-public interface Console<GCommand extends CommandFactory> {
+public class Console implements OutputListener {
 	
-	public static interface OutputListener {
-		public void onNewLine(String line);
-		public void onError(Throwable t);
+	private final BasicCommandInterpreter interpreter;
+	private final List<OutputListener> listener;
+	
+	public void execute(final String command) {
+		final Command interpreted = interpreter.interpret(command);
+		interpreted.execute(this);
 	}
 	
-	public void execute(GCommand command);
-	public void print(String output);
+	public void addCommand(final CommandFactory commandFactory) {
+		interpreter.addCommand(commandFactory);
+	}
 	
-	public void addOutputListener(OutputListener listener);
+	public void addOutputListener(final OutputListener outputListener) {
+		this.listener.add(outputListener);
+	}
+
+	@Override
+	public void onNewLine(final String line) {
+		for (final OutputListener ol : this.listener) {
+			ol.onNewLine(line);
+		}
+	}
+
+	@Override
+	public void onError(final Throwable t) {
+		for (final OutputListener ol : this.listener) {
+			ol.onError(t);
+		}
+	}
+
+	public Console() {
+		super();
+		this.interpreter = new BasicCommandInterpreter();
+		this.listener = new ArrayList<OutputListener>();
+	}
+	
+	
 }
