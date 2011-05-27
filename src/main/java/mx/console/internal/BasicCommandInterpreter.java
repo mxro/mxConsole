@@ -1,8 +1,10 @@
-package mx.console;
+package mx.console.internal;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import mx.console.Command;
+import mx.console.CommandFactory;
 import mx.console.commands.OneArgumentCommand;
 import mx.console.commands.TwoArgumentCommand;
 import mx.console.commands.UnrecognizedCommand;

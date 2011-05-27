@@ -3,6 +3,8 @@ package mx.console;
 import java.util.ArrayList;
 import java.util.List;
 
+import mx.console.internal.BasicCommandInterpreter;
+
 /**
  * Interface for console like string-based interactions.
  * 
