@@ -278,13 +278,13 @@
 		<repository>
 			<id>releases</id>
 			<name>Internal Releases</name>
-			<url>http://STF-6121-DSK06.com.auckland.ac.nz:8080/nexus/content/repositories/releases
+			<url>http://internal1.nxweb.de:8080/nexus/content/repositories/releases
 			</url>
 		</repository>
 		<snapshotRepository>
 			<id>snapshots</id>
 			<name>Internal Snapshots</name>
-			<url>http://STF-6121-DSK06.com.auckland.ac.nz:8080/nexus/content/repositories/snapshots
+			<url>http://internal1.nxweb.de:8080/nexus/content/repositories/snapshots
 			</url>
 		</snapshotRepository>
 	</distributionManagement>
