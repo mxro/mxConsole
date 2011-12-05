@@ -1,3 +1,8 @@
+/*******************************************************************************
+ * Copyright 2011 Max Erik Rohde http://www.mxro.de
+ * 
+ * All rights reserved.
+ ******************************************************************************/
 package mx.console.commands;
 
 public interface OneArgumentCommand<GArgument1> extends ZeroArgumentCommand {
