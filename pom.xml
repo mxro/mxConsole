@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Template: Source + GWT + in workspace dependencies 17.10.2010 -->
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<groupId>mx.console</groupId>
+	<artifactId>mxConsole</artifactId>
+	<version>0.0.2-SNAPSHOT</version>
+	<name>${project.artifactId}</name>
+	
 	<properties>
-		<module.group>mx.console</module.group>    <!-- Maven groupId -->
-		<module.name>mxConsole</module.name>             <!-- Maven artifactId -->
-		<module.version>0.0.2-SNAPSHOT</module.version> <!-- Maven artifact version -->
+		
 		<module.gwtVersion>2.2.0</module.gwtVersion>
 		<module.draftCompile>true</module.draftCompile>
 		<module.importedPackages>
@@ -62,10 +67,7 @@
 	<!-- XXXXXXXXXXXXXX Maven declarations XXXXXXXXXXXXXXXXXX -->
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>${module.group}</groupId>
-	<artifactId>${module.name}</artifactId>
-	<version>${module.version}</version>
-	<name>${module.name}</name>
+	
 	<packaging>bundle</packaging>
 	<url>http://www.linnk.de/</url>
 	<build>
@@ -150,19 +152,7 @@
 			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
-					<execution>
-						<id>copy-dependencies</id>
-						<phase>process-sources</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}</outputDirectory>
-							<overWriteReleases>false</overWriteReleases>
-							<overWriteSnapshots>false</overWriteSnapshots>
-							<overWriteIfNewer>true</overWriteIfNewer>
-						</configuration>
-					</execution>
+					
 				</executions>
 			</plugin>
 
@@ -254,6 +244,20 @@
 			</resource>
 
 		</resources>
+		
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh-external</artifactId>
+				<version>2.5</version>
+			</extension>
+
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh</artifactId>
+				<version>2.5</version>
+			</extension>
+		</extensions>
 	</build>
 
 	<!-- <reporting> <plugins> <plugin> <groupId>org.codehaus.mojo</groupId> 
@@ -276,16 +280,12 @@
 
 	<distributionManagement>
 		<repository>
-			<id>releases</id>
-			<name>Internal Releases</name>
-			<url>http://internal1.nxweb.de:8080/nexus/content/repositories/releases
-			</url>
+			<id>appjangle-releases</id>
+			<url>${repos.appjangle-releases}</url>
 		</repository>
 		<snapshotRepository>
-			<id>snapshots</id>
-			<name>Internal Snapshots</name>
-			<url>http://internal1.nxweb.de:8080/nexus/content/repositories/snapshots
-			</url>
+			<id>appjangle-snapshots</id>
+			<url>${repos.appjangle-snapshots}</url>
 		</snapshotRepository>
 	</distributionManagement>
 
