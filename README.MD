@@ -1,0 +1,1 @@
+**Deprication Notice**: This project is no longer maintained. For similar projects, check out [javadelight](https://www.javadelight.org) and [ObjectHub](https://objecthub.io).
